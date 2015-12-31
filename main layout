@@ -51,14 +51,15 @@ function main__ID(){
     //------------------------------------  
     window.addEventListener("resize", function(){ layout_resize(); });
     //------------------------------------  
-    $('#D__ID').on('load',function(){
+    //$('#D__ID').on('load',function(){
+    var on_load=function(){
         layout_resize();
         $(this).vm6('load_module',home_module,g_vm.root_layout_content_slot); 
         setInterval(function () {
             moveRight();
         }, 6000);        
         login_changed();
-    });
+    };
     //------------------------------------
     if( $('#slider__ID').length!==0 ){
         var slideWidth=window.innerWidth;
@@ -170,6 +171,7 @@ function main__ID(){
         } 
     };
     //------------------------------------
+    on_load();
 }
 main__ID();
 </script>
