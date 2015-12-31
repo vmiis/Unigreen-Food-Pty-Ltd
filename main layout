@@ -34,7 +34,7 @@
 <div id=content_slot__ID></div>
 <footer class=main_footer id=footer__ID></footer>
 <script>
-function F__ID(){
+function main__ID(){
     //------------------------------------    
     var home_module='20007691';
     //------------------------------------
