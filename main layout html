@@ -36,7 +36,9 @@
     </div>
 </header>
 <div id=content_slot__ID__></div>
-<footer class=main_footer id=footer__ID__></footer></body>
+<footer class=main_footer id=footer__ID__></footer>
+<div id="vm_park" style="display:none"></div>
+</body>
 </html>
-__JS__
-__CSS__
+<script>__JS__</script>
+<style>__CSS__</style>
