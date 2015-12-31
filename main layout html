@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head><title>Unigreen Food Pty Ltd</title></head>
+<body>
+<div>
+    <a href="#" class="control_next">></a>
+    <a href="#" class="control_prev"><</a>
+    <div id="slider<ID>">
+    	<ul>
+    		<li style="background: url('<BASE>/171_unigreen.jpg') no-repeat top center; background-size: cover;"></li>
+    		<li style="background: url('<BASE>/173_2Fotolia_78083913_L.jpg') no-repeat top center; background-size: cover;"></li>
+    		<li style="background: url('<BASE>/174_8f2064_753ffc8389a74160b388937802b952eb.jpg') no-repeat top center; background-size: cover;"></li>
+    		<li style="background: url('<BASE>/175_2Fotolia_68523244_L.jpg') no-repeat top center; background-size: cover;"></li>
+    	</ul>
+    </div>
+</div>
+<header id=header<ID>>
+    <div id=d1228<ID>>
+        <div id=logo<ID>><div id=logo_image></div></div>
+    	<nav id=nav<ID>>
+    		<ul>
+    			<li data-m='20007691'>Home</li>
+                	<li data-m='20007683'>Business Portal</li>
+                	<li><label id=sign>Account</label>
+	                    <ul>
+		                        <li id=signin data-b='1'>Sign In</li>
+		                        <li id=signout data-b='2'>Sign Out</li>
+		                        <li id=myaccount data-m='20003125'>My Account</li>
+		                        <li id=admin data-m='20003349'>Administrator</li>
+		                        <li id=developer data-a='/developer/1'>Developer</li>
+		                        <li id=content_editor data-b='5'>Content Editing</li>
+	            		    </ul>
+                	</li>
+    		</ul>
+    	</nav>
+    </div>
+</header>
+<div id=content_slot<ID>></div>
+<footer class=main_footer id=footer<ID>></footer></body>
+</html>
