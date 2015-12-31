@@ -5,19 +5,19 @@
 <div>
     <a href="#" class="control_next">></a>
     <a href="#" class="control_prev"><</a>
-    <div id="slider<ID>">
+    <div id="slider__ID__">
     	<ul>
-    		<li style="background: url('<BASE>/images/171_unigreen.jpg') no-repeat top center; background-size: cover;"></li>
-    		<li style="background: url('<BASE>/images/173_2Fotolia_78083913_L.jpg') no-repeat top center; background-size: cover;"></li>
-    		<li style="background: url('<BASE>/images/174_8f2064_753ffc8389a74160b388937802b952eb.jpg') no-repeat top center; background-size: cover;"></li>
-    		<li style="background: url('<BASE>/images/175_2Fotolia_68523244_L.jpg') no-repeat top center; background-size: cover;"></li>
+    		<li style="background: url('__BASE__/images/171_unigreen.jpg') no-repeat top center; background-size: cover;"></li>
+    		<li style="background: url('__BASE__/images/173_2Fotolia_78083913_L.jpg') no-repeat top center; background-size: cover;"></li>
+    		<li style="background: url('__BASE__/images/174_8f2064_753ffc8389a74160b388937802b952eb.jpg') no-repeat top center; background-size: cover;"></li>
+    		<li style="background: url('__BASE__/images/175_2Fotolia_68523244_L.jpg') no-repeat top center; background-size: cover;"></li>
     	</ul>
     </div>
 </div>
-<header id=header<ID>>
-    <div id=d1228<ID>>
-        <div id=logo<ID>><div id=logo_image></div></div>
-    	<nav id=nav<ID>>
+<header id=header__ID__>
+    <div id=d1228__ID__>
+        <div id=logo__ID__><div id=logo_image></div></div>
+    	<nav id=nav__ID__>
     		<ul>
     			<li data-m='20007691'>Home</li>
                 	<li data-m='20007683'>Business Portal</li>
@@ -35,8 +35,8 @@
     	</nav>
     </div>
 </header>
-<div id=content_slot<ID>></div>
-<footer class=main_footer id=footer<ID>></footer></body>
+<div id=content_slot__ID__></div>
+<footer class=main_footer id=footer__ID__></footer></body>
 </html>
 <JS>
 <CSS>
