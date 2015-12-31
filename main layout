@@ -5,7 +5,7 @@
 <div>
     <a href="#" class="control_next">></a>
     <a href="#" class="control_prev"><</a>
-    <div id="slider">
+    <div id="slider__ID">
     	<ul>
     		<li style="background: url('users/unigreen/files/171_unigreen.jpg') no-repeat top center; background-size: cover;"></li>
     		<li style="background: url('users/unigreen/files/173_2Fotolia_78083913_L.jpg') no-repeat top center; background-size: cover;"></li>
@@ -14,28 +14,28 @@
     	</ul>
     </div>
 </div>
-<header id=header>
-    <div id=d1228>
-        <div id=logo><div id=logo_image></div></div>
-    	<nav id=nav>
+<header id=header__ID>
+    <div id=d1228__ID>
+        <div id=logo__ID><div id=logo_image></div></div>
+    	<nav id=nav__ID>
     		<ul>
     			<li data-m='20007691'>Home</li>
-                <li data-m='20007683'>Business Portal</li>
-                <li><label id=sign>Account</label>
-                    <ul>
-                        <li id=signin data-b='1'>Sign In</li>
-                        <li id=signout data-b='2'>Sign Out</li>
-                        <li id=myaccount data-m='20003125'>My Account</li>
-                        <li id=admin data-m='20003349'>Administrator</li>
-                        <li id=developer data-a='/developer/1'>Developer</li>
-                        <li id=content_editor data-b='5'>Content Editing</li>
-            		</ul>
-                </li>
+                	<li data-m='20007683'>Business Portal</li>
+                	<li><label id=sign>Account</label>
+	                    	<ul>
+		                        <li id=signin data-b='1'>Sign In</li>
+		                        <li id=signout data-b='2'>Sign Out</li>
+		                        <li id=myaccount data-m='20003125'>My Account</li>
+		                        <li id=admin data-m='20003349'>Administrator</li>
+		                        <li id=developer data-a='/developer/1'>Developer</li>
+		                        <li id=content_editor data-b='5'>Content Editing</li>
+	            		</ul>
+                	</li>
     		</ul>
     	</nav>
     </div>
 </header>
-<div id=content_slot></div>
+<div id=content_slot__ID></div>
 <footer class=main_footer id=footer></footer></body>
 </html>
 
