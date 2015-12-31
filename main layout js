@@ -1,6 +1,5 @@
 <script>
 function F__ID__(){
   alert('Hello');
-  __ID__
 }
 </script>
