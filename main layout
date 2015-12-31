@@ -217,7 +217,7 @@ html,body {
     width:180px;
     height:94px;
     /*border-radius: 47px;*/
-    background: url('__BASE__/172_logo_small_white.fw_.png') no-repeat top center;
+    background: url('__BASE__/images/172_logo_small_white.fw_.png') no-repeat top center;
     background-size: contain;
     float:left;
 }
