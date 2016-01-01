@@ -19,7 +19,7 @@
                 	<li data-m='20007683'>Business Portal</li>
                 	<li><label id=sign>Account</label>
 	                    <ul>
-		                        <li id=signin data-b='1'>Sign In</li>
+                        		<li id=signin data-m='20007407'>Sign In</li>
 		                        <li id=signout data-b='2'>Sign Out</li>
 		                        <li id=myaccount data-m='20003125'>My Account</li>
 		                        <li id=admin data-m='20003349'>Administrator</li>
@@ -108,8 +108,7 @@ function main__ID(){
             return;
         }
         else if(b!==undefined){
-            if(b==='1') window.open(VmFramework.api_base+"signin.aspx","Sign In","width=600, height=600");
-            else if(b==='2') signout();
+            if(b==='2') signout();
         }
         if(m==home_module){
             $('a.control_prev').show();$('a.control_next').show();
