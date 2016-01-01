@@ -124,6 +124,7 @@ function main__ID(){
     //---------------------------------------------
     var login_changed=function(){
     	VmFramework.user=g_user;
+    	VmFramework.user_id=g_user_id;
         $('#sign__ID').html(VmFramework.user);
         if(VmFramework.user!='guest'){
             $('#signin__ID').hide();
@@ -152,6 +153,8 @@ function main__ID(){
     //---------------------------------------------
     var signout=function(){
         $(this).vm5('signout',VmFramework.user,function(c){
+            g_user="guest";
+            g_user_id="0";
             VmFramework.user="guest";
             VmFramework.user_id="0";
             $("#sign__ID").text("Account");
