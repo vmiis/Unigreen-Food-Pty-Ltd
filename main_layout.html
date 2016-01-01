@@ -17,13 +17,13 @@
     		<ul>
     			<li data-m='20007691'>Home</li>
                 	<li data-m='20007683'>Business Portal</li>
-                	<li><label id=sign>Account</label>
+                	<li><label id=sign__ID>Account</label>
 	                    <ul>
-                        		<li id=signin data-m='20007407'>Sign In</li>
-		                        <li id=signout data-b='2'>Sign Out</li>
-		                        <li id=myaccount data-m='20003125'>My Account</li>
-		                        <li id=admin data-m='20003349'>Administrator</li>
-		                        <li id=developer data-a='/developer/1'>Developer</li>
+                        		<li id=signin__ID data-m='20007407'>Sign In</li>
+		                        <li id=signout__ID data-b='2'>Sign Out</li>
+		                        <li id=myaccount__ID data-m='20003125'>My Account</li>
+		                        <li id=admin__ID data-m='20003349'>Administrator</li>
+		                        <li id=developer__ID data-a='/developer/1'>Developer</li>
 	            		    </ul>
                 	</li>
     		</ul>
@@ -123,7 +123,6 @@ function main__ID(){
     });
     //---------------------------------------------
     var login_changed=function(){
-    	alert(g_user);
     	VmFramework.user=g_user;
         $('#sign__ID').html(VmFramework.user);
         if(VmFramework.user!='guest'){
