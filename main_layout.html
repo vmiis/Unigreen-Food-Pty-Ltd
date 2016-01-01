@@ -24,7 +24,6 @@
 		                        <li id=myaccount data-m='20003125'>My Account</li>
 		                        <li id=admin data-m='20003349'>Administrator</li>
 		                        <li id=developer data-a='/developer/1'>Developer</li>
-		                        <li id=content_editor data-b='5'>Content Editing</li>
 	            		    </ul>
                 	</li>
     		</ul>
@@ -38,6 +37,10 @@ function main__ID(){
     //------------------------------------
     var home_module='20007691';
     //------------------------------------
+    VmFramework.root_layout_content_slot="content_slot__ID";
+    VmFramework.root_layout_header='header__ID';
+    VmFramework.root_layout_footer='footer__ID';
+    
     g_vm.root_layout_content_slot="content_slot__ID";
     g_vm.root_layout_header='header__ID';
     g_vm.root_layout_footer='footer__ID';
@@ -46,7 +49,8 @@ function main__ID(){
     //------------------------------------
     var layout_resize=function(){
         g_vm_min_height=$(window).height()-$('#header__ID').outerHeight()-$('#footer__ID').outerHeight();
-        $('#content_slot__ID').css('min-height',g_vm_min_height+'px');
+        VmFramework.min_height=$(window).height()-$('#header__ID').outerHeight()-$('#footer__ID').outerHeight();
+        $('#content_slot__ID').css('min-height',VmFramework.min_height+'px');
     };
     //------------------------------------
     window.addEventListener("resize", function(){ layout_resize(); });
@@ -54,7 +58,7 @@ function main__ID(){
     //$('#D__ID').on('load',function(){
     var on_load=function(){
         layout_resize();
-        $(this).vm6('load_module',home_module,g_vm.root_layout_content_slot);
+        $(this).vm6('load_module',home_module,VmFramework.root_layout_content_slot);
         setInterval(function () {
             moveRight();
         }, 6000);
@@ -98,7 +102,7 @@ function main__ID(){
         var m=$(this).attr('data-m');
         var a=$(this).attr('data-a');
         var b=$(this).attr('data-b');
-        if     (m!==undefined)  $(this).vm6('load_module',  m, g_vm.root_layout_content_slot);
+        if     (m!==undefined)  $(this).vm6('load_module',  m, VmFramework.root_layout_content_slot);
         else if(a!==undefined){
             window.open(a+"?d=1");
             return;
@@ -106,7 +110,6 @@ function main__ID(){
         else if(b!==undefined){
             if(b==='1') window.open("signin.aspx","Sign In","width=600, height=600");
             else if(b==='2') signout();
-            else if(b==='5') content_editing();
         }
         if(m==home_module){
             $('a.control_prev').show();$('a.control_next').show();
@@ -121,8 +124,8 @@ function main__ID(){
     });
     //---------------------------------------------
     var login_changed=function(){
-        $('#sign__ID').html(g_user);
-        if(g_user!='guest'){
+        $('#sign__ID').html(VmFramework.user);
+        if(VmFramework.user!='guest'){
             $('#signin__ID').hide();
             $('#myaccount__ID').show();
             $('#signout__ID').show();
@@ -134,14 +137,12 @@ function main__ID(){
             $('#signout__ID').hide();
             $('#create__ID').show();
         }
-        $(this).vm6('load_module',home_module,g_vm.root_layout_content_slot);
+        $(this).vm6('load_module',home_module,VmFramework.root_layout_content_slot);
         $('#content_slot__ID').css('background','rgba(255, 255, 255, 0');
 
         $('#admin__ID').hide();
-        if(g_vm_path_app.indexOf('testserver')==-1){
-		    var p=window.location.href.split('/').pop();
-		    var N=p.split('?')[0];
-		    $(this).vm6('request',{cmd:'query',fun:'vm_get_app_owner_v3',module:N}, function(c){
+        if(VmFramework.server=='production'){
+		    $(this).vm6('request',{cmd:'query',fun:'vm_get_app_owner_v3',module:__ID}, function(c){
                 if(c.ret=="1"){
                     $('#admin__ID').show();
                 }
@@ -150,27 +151,14 @@ function main__ID(){
     };
     //---------------------------------------------
     var signout=function(){
-        $(this).vm5('signout',g_user,function(c){
-            g_user="guest";
-            g_user_id="0";
+        $(this).vm5('signout',VmFramework.user,function(c){
+            VmFramework.user="guest";
+            VmFramework.user_id="0";
             $("#sign__ID").text("Account");
             login_changed();
         });
     };
     //---------------------------------------------
-    var content_editing=function(){
-        if(g_module_border=="0"){
-            g_module_border="1";
-		    $('div.vm_module').css("border","1px solid red");
-		    $('div.number_label').show();
-        }
-        else{
-            g_module_border="0";
-		    $('div.vm_module').css("border","0px solid red");
-		    $('div.number_label').hide();
-        }
-    };
-    //------------------------------------
     on_load();
 }
 main__ID();
