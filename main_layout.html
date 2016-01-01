@@ -123,6 +123,7 @@ function main__ID(){
     });
     //---------------------------------------------
     var login_changed=function(){
+    	VmFramework.user=g_user;
         $('#sign__ID').html(VmFramework.user);
         if(VmFramework.user!='guest'){
             $('#signin__ID').hide();
