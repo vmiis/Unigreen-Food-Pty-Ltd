@@ -1,7 +1,6 @@
 <h1>Business Portal for Unigreen Food Pty Ltd</h1>
 
-Preview link:
-https://htmlpreview.github.io/?https://raw.githubusercontent.com/vmiis/Unigreen-Food-Pty-Ltd/master/index.html
+Preview link:<a target=_blank href=https://htmlpreview.github.io/?https://raw.githubusercontent.com/vmiis/Unigreen-Food-Pty-Ltd/master/index.html>index.html</a>
 
 <ul>
 <li>This application can be hosted on any HTML server.</li>
