@@ -19,12 +19,12 @@
                 	<li data-m='20007683'>Business Portal</li>
                 	<li><label id=sign__ID>Account</label>
 	                    <ul>
-                        		<li id=signin__ID data-m='20007407'>Sign In</li>
-		                        <li id=signout__ID data-b='2'>Sign Out</li>
-		                        <li id=myaccount__ID data-m='20003125'>My Account</li>
-		                        <li id=admin__ID data-m='20003349'>Administrator</li>
-		                        <li id=developer__ID data-a='/developer/1'>Developer</li>
-	            		    </ul>
+                        	<li id=signin__ID data-b='1'>Sign In</li>
+		                    <li id=signout__ID data-b='2'>Sign Out</li>
+		                    <li id=myaccount__ID data-m='20003125'>My Account</li>
+		                    <li id=admin__ID data-m='20003349'>Administrator</li>
+		                    <li id=developer__ID data-a='/developer/1'>Developer</li>
+	            		</ul>
                 	</li>
     		</ul>
     	</nav>
@@ -34,6 +34,10 @@
 <footer class=main_footer id=footer__ID></footer>
 <script>
 function main__ID(){
+	window.onmessage=function(e){
+  		alert(e.data.username);
+  		alert(e.data.token);
+	};
     //------------------------------------
     var home_module='home.html';
     //------------------------------------
@@ -102,7 +106,8 @@ function main__ID(){
           return;
       }
       else if(b!==undefined){
-          if(b==='2') signout();
+          if(b==='1') window.open(VmFramework.api_base+"signin.aspx?url="+window.location.href,"Sign In","width=600, height=600"); 
+          else if(b==='2') signout();
       }
       process_background(e);
     }
