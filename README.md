@@ -6,5 +6,5 @@ Preview link:<a target=_blank href=https://htmlpreview.github.io/?https://raw.gi
 <li>This application can be hosted on any HTML server.</li>
 <li>All business data are stored in a Database hosted on Amazon cloud infrastructure.</li>
 <li>All business data are daily backup to Amazon Cloud DynamoDB Database (under data owner's account)</li>
-<li>All business files are stored in Amazon Cloud S3 Storage (under data owner's account)</li>
+<li>All business files are stored in Amazon Cloud S3 Storage (under file owner's account)</li>
 </ul>
