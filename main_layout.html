@@ -58,6 +58,13 @@ function main__ID(){
         login_changed();
     };
     //------------------------------------
+    window.onmessage=function(e){
+        VmFramework.user=e.data.username;
+        VmFramework.token=e.data.token;
+    		g_user=e.data.username;
+    		login_changed();
+  	};
+    //------------------------------------
     $('#D__ID').on('login_changed',function(){
         login_changed();
     });
@@ -102,7 +109,7 @@ function main__ID(){
           return;
       }
       else if(b!==undefined){
-          if(b==='1') window.open("signin.aspx","Sign In","width=600, height=600"); 
+          if(b==='1') window.open(VmFramework.api_base+"signin.aspx?url="+window.location.href,"Sign In","width=600, height=600"); 
           else if(b==='2') signout();
       }
       process_background(e);
