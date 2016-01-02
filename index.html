@@ -51,9 +51,9 @@
 $(document).ready(function(){
 	//-------------------------------------------------------------------------
 	//Configration: where are the modules?
-  VmFramework.api_base="https://cbs.wappsystem.com/dev/";
-  VmFramework.module_base="http://192.168.1.133:8000/";	//for development
-	//VmFramework.module_base="https://raw.githubusercontent.com/vmiis/Unigreen-Food-Pty-Ltd/master/";
+  	VmFramework.api_base="https://cbs.wappsystem.com/dev/";
+  	//VmFramework.module_base="http://192.168.1.133:8000/";	//for development
+	VmFramework.module_base="https://raw.githubusercontent.com/vmiis/Unigreen-Food-Pty-Ltd/master/";
 	//-------------------------------------------------------------------------
 	VmFramework.server="development";
 	//-------------------------------------------------------------------------
@@ -61,7 +61,7 @@ $(document).ready(function(){
 	g_server="development";
 	//-------------------------------------------------------------------------
 	//first do some init tasks, then load the main layout
-  VmFramework.init({callback:function(){
+  	VmFramework.init({callback:function(){
 		var ver='?v=3',base=VmFramework.module_base;
 		var url=base+'main_layout.html'+ver;
 		var pid=Math.random().toString().replace('.','');
