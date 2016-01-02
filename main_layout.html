@@ -34,10 +34,6 @@
 <footer class=main_footer id=footer__ID></footer>
 <script>
 function main__ID(){
-	window.onmessage=function(e){
-  		alert(e.data.username);
-  		alert(e.data.token);
-	};
     //------------------------------------
     var home_module='home.html';
     //------------------------------------
@@ -106,7 +102,7 @@ function main__ID(){
           return;
       }
       else if(b!==undefined){
-          if(b==='1') window.open(VmFramework.api_base+"signin.aspx?url="+window.location.href,"Sign In","width=600, height=600"); 
+          if(b==='1') window.open("signin.aspx","Sign In","width=600, height=600"); 
           else if(b==='2') signout();
       }
       process_background(e);
