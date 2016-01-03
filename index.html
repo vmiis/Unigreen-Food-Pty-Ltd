@@ -56,6 +56,8 @@ $(document).ready(function(){
 	VmFramework.module_base="https://raw.githubusercontent.com/vmiis/Unigreen-Food-Pty-Ltd/master/";
 	//-------------------------------------------------------------------------
 	VmFramework.server="development";
+	if(VmFramework.server=="development") VmFramework.ver=new Date().getTime();
+	else VmFramework.ver=1;
 	//-------------------------------------------------------------------------
   	//for old vm.js, will disappeared
 	g_server="development";
