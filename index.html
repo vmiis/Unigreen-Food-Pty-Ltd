@@ -40,8 +40,8 @@
 	<script src="https://cbs.wappsystem.com/system/third/iframeResizer.contentWindow.min.js" type="text/javascript"></script>
 	<script src="https://cbs.wappsystem.com/system/third/handsontable.full.min.js"></script>
 
-	<script src="https://cbs.wappsystem.com/dev/vmframework.min.js?v=11" type="text/javascript"></script>
-	<script src="https://cbs.wappsystem.com/dev/vmapi.min.js?v=6" type="text/javascript"></script>
+	<script src="https://raw.githubusercontent.com/vmiis/VmFramework/master/distribution/vmframework.min.js?v=11" type="text/javascript"></script>
+	<script src="https://raw.githubusercontent.com/vmiis/VmAPI/master/distribution/vmapi.min.js?v=11" type="text/javascript"></script>
 	<script src="https://cbs.wappsystem.com/dev/vm.js?v=12" type="text/javascript"></script>
 
 </head>
@@ -51,20 +51,18 @@
 $(document).ready(function(){
 	//-------------------------------------------------------------------------
 	//Configration: where are the modules?
-  	VmFramework.api_base="https://cbs.wappsystem.com/dev/";
-  	//VmFramework.module_base="http://192.168.1.133:8000/";	//for development
+	VmFramework.api_base="https://cbs.wappsystem.com/dev/";
 	VmFramework.module_base="https://raw.githubusercontent.com/vmiis/Unigreen-Food-Pty-Ltd/master/";
+	VmFramework.module_base="https://raw.githubusercontent.com/vmiis/Common/master/";
 	//-------------------------------------------------------------------------
 	VmFramework.server="development";
-	if(VmFramework.server=="development") VmFramework.ver=new Date().getTime();
-	else VmFramework.ver=1;
 	//-------------------------------------------------------------------------
   	//for old vm.js, will disappeared
 	g_server="development";
 	//-------------------------------------------------------------------------
 	//first do some init tasks, then load the main layout
-  	VmFramework.init({callback:function(){
-		var ver='?v=3',base=VmFramework.module_base;
+	VmFramework.init({callback:function(){
+		var ver='?v=3',base=VmFramework.app_base;
 		var url=base+'main_layout.html'+ver;
 		var pid=Math.random().toString().replace('.','');
 		VmFramework.load_module({pid:pid,slot:g_vm.root_layout_content_slot,url:url,base:base,ver:ver});
