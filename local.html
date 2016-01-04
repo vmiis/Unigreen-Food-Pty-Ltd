@@ -1,47 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<base href="https://cbs.wappsystem.com/dev/" />
+<!DOCTYPE html><html><head>
 	<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/themes/redmond/jquery-ui.css" />
 	<link rel="stylesheet" media="screen"  href="https://cbs.wappsystem.com/system/third/handsontable.full.min.css">
-
-	<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
 	<script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/jquery-ui.min.js"></script>
-	              http://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/jquery-ui.min.js
 	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
 	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.34.min.js"></script>
 	<script src="https://cbs.wappsystem.com/system/third/handsontable.full.min.js"></script>
 	<script src="https://www.google.com/jsapi"></script>
-	<script type="text/javascript">
-      	google.load('visualization', '1', {'packages':['corechart']});
-	</script>
-
-	<script src="http://192.168.1.129:8000/VmFramework/distribution/vmframework.min.js?v=11" type="text/javascript"></script>
-	<script src="http://192.168.1.129:8000/VmAPI/distribution/vmAPI.min.js?v=17" type="text/javascript"></script>
-	<script src="https://cbs.wappsystem.com/dev/vm.js?v=12" type="text/javascript"></script>
-</head>
-<body></body>
-</html>
+	<script type="text/javascript">google.load('visualization', '1', {'packages':['corechart']});</script>
+</head><body></body></html>
 <script>
 $(document).ready(function(){
-	//-------------------------------------------------------------------------
-	//Configration: where are the modules?
-	VmFramework.api_base="https://cbs.wappsystem.com/dev/";
-	VmFramework.app_base="http://192.168.1.129:8000/Unigreen-Food-Pty-Ltd/";	//for development
-	VmFramework.common_base="http://192.168.1.129:8000/Common/";			//for development
-	//-------------------------------------------------------------------------
-	VmFramework.server="development";
-	//-------------------------------------------------------------------------
-  	//for old vm.js, will disappeared
-	g_server="development";
-	//-------------------------------------------------------------------------
-	//first do some init tasks, then load the main layout
-	VmFramework.init({callback:function(){
-		var ver='?v=3',base=VmFramework.app_base;
-		var url=base+'modules/main_layout.html'+ver;
-		var pid=Math.random().toString().replace('.','');
-		VmFramework.load_module({pid:pid,slot:g_vm.root_layout_content_slot,url:url,base:base,ver:ver});
-	}});
-	//-------------------------------------------------------------------------
+	var site_base='http://192.168.1.129:8000/';
+	g_server="development"; //for old vm.js, will disappeared
+	$.when(
+		$.getScript( "https://cbs.wappsystem.com/dev/vm.js",{cache:true} ),
+	    	$.getScript( site_base+"VmFramework/distribution/vmframework.min.js",{cache:true} ),
+	    	$.getScript( site_base+"VmAPI/distribution/vmAPI.min.js",{cache:true} )
+	).done(function(){
+		VmFramework.server="development";
+		//-------------------------------------------------------------------------
+		//Configration: where are the modules?
+		VmFramework.api_base="https://cbs.wappsystem.com/dev/";
+		VmFramework.app_base=site_base+"Unigreen-Food-Pty-Ltd/";
+		VmFramework.common_base=site_base+"Common/";
+		//-------------------------------------------------------------------------
+		//first do some init tasks, then load the main layout
+		VmFramework.init({callback:function(){
+			var param={
+				pid:Math.random().toString().replace('.',''),
+				slot:VmFramework.root_layout_content_slot,
+				url:VmFramework.app_base+'modules/main_layout.html'+'?ver=5'
+			}
+			VmFramework.load_module(param);
+		}});
+		//-------------------------------------------------------------------------
+	});
 });
 </script>
