@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head>
+<!DOCTYPE html><html><head id=main_head>
 	<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/themes/redmond/jquery-ui.css" />
 	<link rel="stylesheet" media="screen"  href="https://cbs.wappsystem.com/system/third/handsontable.full.min.css">
 	<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
@@ -8,28 +8,36 @@
 	<script src="https://cbs.wappsystem.com/system/third/handsontable.full.min.js"></script>
 	<script src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">google.load('visualization', '1', {'packages':['corechart']});</script>
+	<script src="https://cbs.wappsystem.com/dev/vm.js"></script>
 </head><body></body></html>
 <script>
 $(document).ready(function(){
+	//----------------------------------------
+	//Configration: where,debug,version...
+	var site_base='https://raw.githubusercontent.com/vmiis/';
+	var app_base=site_base+"Unigreen-Food-Pty-Ltd/master/";
+	var common_base="https://raw.githubusercontent.com/vmiis/Common-Modules/master/";
+	var api_base="https://cbs.wappsystem.com/dev/";
+	var debug=false;
+	//----------------------------------------
 	g_server="development"; //for old vm.js, will disappeared
 	$.when(
-		$.getScript( "https://cbs.wappsystem.com/dev/vm.js",{cache:true} ),
-	    	$.getScript( "https://cbs.wappsystem.com/dev/vmframework.min.js",{cache:true} ),
-	    	$.getScript( "https://cbs.wappsystem.com/dev/vmAPI.min.js",{cache:true} )
+		$.get("https://raw.githubusercontent.com/vmiis/VmFramework/master/distribution/vmframework.min.js",function(c){$('#main_head').append('<scr'+'ipt>'+c+'</scr'+'ipt>')}),
+		$.get("https://raw.githubusercontent.com/vmiis/vmAPI/master/distribution/vmapi.min.js",function(c){$('#main_head').append('<scr'+'ipt>'+c+'</scr'+'ipt>')} )
 	).done(function(){
 		VmFramework.server="development";
 		//-------------------------------------------------------------------------
-		//Configration: where are the modules?
-		VmFramework.api_base="https://cbs.wappsystem.com/dev/";
-		VmFramework.app_base="https://raw.githubusercontent.com/vmiis/Unigreen-Food-Pty-Ltd/master/";
-		VmFramework.common_base="https://raw.githubusercontent.com/vmiis/Common/master/";
+		VmFramework.api_base=api_base;
+		VmFramework.app_base=app_base;
+		VmFramework.common_base=common_base;
+		VmFramework.ver='20160106'; if(debug) VmFramework.ver=new Date().getTime();
 		//-------------------------------------------------------------------------
 		//first do some init tasks, then load the main layout
 		VmFramework.init({callback:function(){
 			var param={
 				pid:Math.random().toString().replace('.',''),
 				slot:VmFramework.root_layout_content_slot,
-				url:VmFramework.app_base+'modules/main_layout.html'+'?ver=5'
+				url:VmFramework.app_base+'modules/main_layout.html'
 			}
 			VmFramework.load_module(param);
 		}});
