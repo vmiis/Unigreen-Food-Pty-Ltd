@@ -4,18 +4,23 @@
       </div>
       <div style='clear:left;'>
             <div id='nav__ID'>
-            <span>Data entry and search</span>
-            <ul>
-                  <li><a data-m='20007619'>Monthly Calendar</a></li>
-            </ul>
-            <br>
-            <span>Reports</span>
-            <ul>
-                  <li><a>xxx</a></li>
-                  <li><a>xxx</a></li>
-            </ul>
-            <br>
-            </div>
+                  <span>Data entry and search</span>
+                  <ul>
+                      <li><a data-pid='20007680'>Stock control</a></li>
+                  </ul>
+                  <br>
+                  <span>Reports</span>
+                  <ul>
+                      <li><a data-pid='20007685'>Total number of items in stock</a></li>
+                      <li><a data-pid='20007688' >Daily Report</a></li>
+                  </ul>
+                  <br>
+                  <span>Setup</span>
+                  <ul>
+                      <li><a data-pid='20007681'>Production List</a></li>
+                      <li><a data-e='modules/staff_list.html' data-db-pid='20007682' >Staff List</a></li>
+                  </ul>
+                  </div>
             </div>
       </div>
 </section>
@@ -23,7 +28,7 @@
       function F__ID(){
             //---------------------------------------------
             //click, permission process
-            var content_slot=VmFramework.root_layout_content_slot;
+            var content_slot=$vm.root_layout_content_slot;
             VmCommonInclude:navigation/a_process.js
             //---------------------------------------------
             $('#back__ID').on('click',function(event){
@@ -79,15 +84,15 @@
       #toolbar__ID a:hover {
         background-color:#525959;
       }
-      .nav__ID{
+      #nav__ID{
           padding:6px 26px 6px 6px;
           color: #202727;
           display:table-cell;
       }
-      .nav__ID a{
+      #nav__ID a{
           cursor:pointer;
       }
-      .nav__ID span{
+      #nav__ID span{
           margin:3px;
           display:block;
           font-weight:700;
@@ -96,13 +101,13 @@
           color:#888!Important;
           cursor:not-allowed!Important;
       }
-      .nav__ID a{
+      #nav__ID a{
           -moz-transition: all 0.2s ease-in-out;
           -o-transition: all 0.2s ease-in-out;
           -webkit-transition: all 0.2s ease-in-out;
           transition: all 0.2s ease-in-out;
       }
-      .nav__ID a:hover {
+      #nav__ID a:hover {
           background: #687A7B;
           color: #fff;
           cursor:pointer;

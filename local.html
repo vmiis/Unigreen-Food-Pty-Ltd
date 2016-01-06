@@ -8,41 +8,43 @@
 	<script src="https://cbs.wappsystem.com/system/third/handsontable.full.min.js"></script>
 	<script src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">google.load('visualization', '1', {'packages':['corechart']});</script>
-	<script src="https://cbs.wappsystem.com/dev/vm.js"></script>
+	<script src="https://cbs.wappsystem.com/dev/vm.js?v=3"></script>
 </head><body></body></html>
 <script>
  $(document).ready(function(){
 	//----------------------------------------
-	//Configration: where are the modules?
-	var site_base='http://192.168.1.129:8000/';
+	//Init: where, debug, version...
+	var site_base='http://192.168.1.133:8000/';
 	var app_base=site_base+"Unigreen-Food-Pty-Ltd/";
 	//var common_base="https://raw.githubusercontent.com/vmiis/Common-Modules/master/";
 	var common_base=site_base+"Common-Modules/";
 	var api_base="https://cbs.wappsystem.com/dev/";
+	var production_ver='20160106';
+      g_server="development";
 	var debug=true;
 	//----------------------------------------
-	g_server="development"; //for old vm.js, will disappeared
+	 //for old vm.js, will disappeared
 	$.when(
 		//$.get("https://raw.githubusercontent.com/vmiis/VmFramework/master/distribution/vmframework.min.js",function(c){$('#main_head').append('<scr'+'ipt>'+c+'</scr'+'ipt>')}),
 		//$.get("https://raw.githubusercontent.com/vmiis/vmAPI/master/distribution/vmapi.min.js",function(c){$('#main_head').append('<scr'+'ipt>'+c+'</scr'+'ipt>')} )
 		$.get(site_base+"VmFramework/distribution/vmframework.min.js",function(c){$('#main_head').append('<scr'+'ipt>'+c+'</scr'+'ipt>')}),
 		$.get(site_base+"VmAPI/distribution/vmapi.min.js",function(c){$('#main_head').append('<scr'+'ipt>'+c+'</scr'+'ipt>')} )
 	).done(function(){
-		VmFramework.server="development";
 		//-------------------------------------------------------------------------
-		VmFramework.api_base=api_base;
-		VmFramework.app_base=app_base;
-		VmFramework.common_base=common_base;
-		VmFramework.ver='20160106'; if(debug) VmFramework.ver=new Date().getTime();
+		$vm.server=g_server;
+		$vm.api_base=api_base;
+		$vm.app_base=app_base;
+		$vm.common_base=common_base;
+		$vm.ver=production_ver; if(debug) $vm.ver=new Date().getTime();
 		//-------------------------------------------------------------------------
 		//first do some init tasks, then load the main layout
-		VmFramework.init({callback:function(){
+		$vm.init({callback:function(){
 			var param={
 				pid:Math.random().toString().replace('.',''),
-				slot:VmFramework.root_layout_content_slot,
-				url:VmFramework.app_base+'modules/main_layout.html'
+				slot:$vm.root_layout_content_slot,
+				url:$vm.app_base+'modules/main_layout.html'
 			}
-			VmFramework.load_module(param);
+			$vm.load_module(param);
 		}});
 		//-------------------------------------------------------------------------
 	});

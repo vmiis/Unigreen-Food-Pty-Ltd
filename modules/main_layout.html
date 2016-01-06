@@ -17,7 +17,7 @@
           	<nav id=nav__ID>
           		<ul>
           			<li data-e='modules/home.html'>Home</li>
-                      	<li data-m='20007683'>Business Portal</li>
+                        <li data-e='modules/business_portal_nav.html'>Business Portal</li>
                       	<li><label id=sign__ID>Account</label>
       	                    <ul>
                               	<li id=signin__ID data-b='1'>Sign In</li>
@@ -39,9 +39,9 @@
             //------------------------------------
             var home_module='modules/home.html';
             //------------------------------------
-            VmFramework.root_layout_content_slot="content_slot__ID";
-            VmFramework.root_layout_header='header__ID';
-            VmFramework.root_layout_footer='footer__ID';
+            $vm.root_layout_content_slot="content_slot__ID";
+            $vm.root_layout_header='header__ID';
+            $vm.root_layout_footer='footer__ID';
             //------------------------------------
             //for old vm.js
             g_vm.root_layout_content_slot="content_slot__ID";
@@ -61,9 +61,9 @@
             };
             //------------------------------------
             window.onmessage=function(e){
-                  VmFramework.user=e.data.username;
-                  VmFramework.token=e.data.token;
-                  VmAPI.request.set_token(e.data.token);
+                  $vm.user=e.data.username;
+                  $vm.token=e.data.token;
+                  VmAPI.set_token(e.data.token);
                   g_user=e.data.username;
                   login_changed();
             };
@@ -78,10 +78,10 @@
             });
             //---------------------------------------------
             var load_module=function(name){
-                  var ver='?v=3',base=VmFramework.app_base;
+                  var ver='?v=3',base=$vm.app_base;
                   var url=base+name+ver;
                   var pid=name.replace(/\./g,'_').replace(/\//g,'_');
-                  VmFramework.load_module({pid:pid,slot:g_vm.root_layout_content_slot,url:url,base:base,ver:ver});
+                  $vm.load_module({pid:pid,slot:g_vm.root_layout_content_slot,url:url,base:base,ver:ver});
                   process_background(name);
             }
             //------------------------------------
@@ -106,23 +106,23 @@
             if(e!==undefined){
               load_module(e);
             }
-            else if(m!==undefined)  $(this).vm6('load_module',  m, VmFramework.root_layout_content_slot);
+            else if(m!==undefined)  $(this).vm6('load_module',  m, $vm.root_layout_content_slot);
             else if(a!==undefined){
                 window.open(a+"?d=1");
                 return;
             }
             else if(b!==undefined){
-                if(b==='1') window.open(VmFramework.api_base+"signin.aspx?url="+window.location.href,"Sign In","width=600, height=600");
+                if(b==='1') window.open($vm.api_base+"signin.aspx?url="+window.location.href,"Sign In","width=600, height=600");
                 else if(b==='2') signout();
             }
             process_background(e);
             }
             //------------------------------------
             var login_changed=function(){
-            	VmFramework.user=g_user;
-            	VmFramework.user_id=g_user_id;
-              $('#sign__ID').html(VmFramework.user);
-              if(VmFramework.user!='guest'){
+            	$vm.user=g_user;
+            	$vm.user_id=g_user_id;
+              $('#sign__ID').html($vm.user);
+              if($vm.user!='guest'){
                   $('#signin__ID').hide();
                   $('#myaccount__ID').show();
                   $('#signout__ID').show();
@@ -140,7 +140,7 @@
             //---------------------------------------------
             var show_hide_admin=function(){
             $('#admin__ID').hide();
-            if(VmFramework.server=='production'){
+            if($vm.server=='production'){
                 $(this).vm6('request',{cmd:'query',fun:'vm_get_app_owner_v3',module:__ID}, function(c){
                     if(c.ret=="1"){
                         $('#admin__ID').show();
@@ -150,11 +150,11 @@
             }
             //---------------------------------------------
             var signout=function(){
-              $(this).vm5('signout',VmFramework.user,function(c){
+              $(this).vm5('signout',$vm.user,function(c){
                   g_user="guest";
                   g_user_id="0";
-                  VmFramework.user="guest";
-                  VmFramework.user_id="0";
+                  $vm.user="guest";
+                  $vm.user_id="0";
                   $("#sign__ID").text("Account");
                   login_changed();
               });
@@ -191,8 +191,8 @@
             //------------------------------------
             var layout_resize=function(){
               g_vm_min_height=$(window).height()-$('#header__ID').outerHeight()-$('#footer__ID').outerHeight();
-              VmFramework.min_height=$(window).height()-$('#header__ID').outerHeight()-$('#footer__ID').outerHeight();
-              $('#content_slot__ID').css('min-height',VmFramework.min_height+'px');
+              $vm.min_height=$(window).height()-$('#header__ID').outerHeight()-$('#footer__ID').outerHeight();
+              $('#content_slot__ID').css('min-height',$vm.min_height+'px');
             };
             //------------------------------------
             window.addEventListener("resize", function(){ layout_resize(); });

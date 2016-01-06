@@ -18,28 +18,29 @@
 	var app_base=site_base+"Unigreen-Food-Pty-Ltd/master/";
 	var common_base="https://raw.githubusercontent.com/vmiis/Common-Modules/master/";
 	var api_base="https://cbs.wappsystem.com/dev/";
+	var production_ver='20160106';
+      g_server="development";
 	var debug=false;
 	//----------------------------------------
-	g_server="development"; //for old vm.js, will disappeared
 	$.when(
-		$.get("https://raw.githubusercontent.com/vmiis/VmFramework/master/distribution/vmframework.min.js",function(c){$('#main_head').append('<scr'+'ipt>'+c+'</scr'+'ipt>')}),
-		$.get("https://raw.githubusercontent.com/vmiis/vmAPI/master/distribution/vmapi.min.js",function(c){$('#main_head').append('<scr'+'ipt>'+c+'</scr'+'ipt>')} )
+		$.get(site_base+"VmFramework/master/distribution/vmframework.min.js",function(c){$('#main_head').append('<scr'+'ipt>'+c+'</scr'+'ipt>')}),
+		$.get(site_base+"VmAPI/master/distribution/vmapi.min.js",function(c){$('#main_head').append('<scr'+'ipt>'+c+'</scr'+'ipt>')} )
 	).done(function(){
-		VmFramework.server="development";
 		//-------------------------------------------------------------------------
-		VmFramework.api_base=api_base;
-		VmFramework.app_base=app_base;
-		VmFramework.common_base=common_base;
-		VmFramework.ver='20160106'; if(debug) VmFramework.ver=new Date().getTime();
+		$vm.server=g_server;
+		$vm.api_base=api_base;
+		$vm.app_base=app_base;
+		$vm.common_base=common_base;
+		$vm.ver=production_ver; if(debug) $vm.ver=new Date().getTime();
 		//-------------------------------------------------------------------------
 		//first do some init tasks, then load the main layout
-		VmFramework.init({callback:function(){
+		$vm.init({callback:function(){
 			var param={
 				pid:Math.random().toString().replace('.',''),
-				slot:VmFramework.root_layout_content_slot,
-				url:VmFramework.app_base+'modules/main_layout.html'
+				slot:$vm.root_layout_content_slot,
+				url:$vm.app_base+'modules/main_layout.html'
 			}
-			VmFramework.load_module(param);
+			$vm.load_module(param);
 		}});
 		//-------------------------------------------------------------------------
 	});
