@@ -78,10 +78,13 @@
             });
             //---------------------------------------------
             var load_module=function(name){
-                  var ver='?v=3',base=$vm.app_base;
-                  var url=base+name+ver;
-                  var pid=name.replace(/\./g,'_').replace(/\//g,'_');
-                  $vm.load_module({pid:pid,slot:g_vm.root_layout_content_slot,url:url,base:base,ver:ver});
+                  var param={
+      			pid:Math.random().toString().replace('.',''),
+      			slot:$vm.root_layout_content_slot,
+      			url:$vm.app_base+name,
+                        source:name
+            	}
+                  $vm.load_module(param);
                   process_background(name);
             }
             //------------------------------------

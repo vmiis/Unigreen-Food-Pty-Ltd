@@ -6,19 +6,19 @@
             <div id='nav__ID'>
                   <span>Data entry and search</span>
                   <ul>
-                      <li><a data-pid='20007680'>Stock control</a></li>
+                      <li data-pid='20007680'>Stock control</li>
                   </ul>
                   <br>
                   <span>Reports</span>
                   <ul>
-                      <li><a data-pid='20007685'>Total number of items in stock</a></li>
-                      <li><a data-pid='20007688' >Daily Report</a></li>
+                      <li data-pid='20007685'>Total number of items in stock</li>
+                      <li data-pid='20007688' >Daily Report</li>
                   </ul>
                   <br>
                   <span>Setup</span>
                   <ul>
-                      <li><a data-pid='20007681'>Production List</a></li>
-                      <li><a data-e='modules/staff_list.html' data-db-pid='20007682' >Staff List</a></li>
+                      <li data-e='modules/production_list.html' data-db-pid='20007681'>Production List</li>
+                      <li data-e='modules/staff_list.html' data-db-pid='20007682' >Staff List</li>
                   </ul>
                   </div>
             </div>
@@ -29,7 +29,7 @@
             //---------------------------------------------
             //click, permission process
             var content_slot=$vm.root_layout_content_slot;
-            VmCommonInclude:navigation/a_process.js
+            VmCommonInclude:navigation/link_process.js
             //---------------------------------------------
             $('#back__ID').on('click',function(event){
                   event.stopPropagation();
@@ -48,7 +48,6 @@
       #D__ID,#pvdiv__ID{
           font-size:10pt;
           font-family: Verdana,Helvetica,Arial,sans-serif;;
-          cursor:pointer;
       }
       #D__ID{
           background-color:#fff;
@@ -89,7 +88,7 @@
           color: #202727;
           display:table-cell;
       }
-      #nav__ID a{
+      #nav__ID li{
           cursor:pointer;
       }
       #nav__ID span{

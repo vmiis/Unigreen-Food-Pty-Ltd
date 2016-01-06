@@ -14,8 +14,9 @@
  $(document).ready(function(){
 	//----------------------------------------
 	//Init: where, debug, version...
-	var site_base='http://192.168.1.133:8000/';
+	var site_base='http://192.168.1.129:8000/';
 	var app_base=site_base+"Unigreen-Food-Pty-Ltd/";
+	var code_base="https://github.com/vmiis/Unigreen-Food-Pty-Ltd/blob/master/";
 	//var common_base="https://raw.githubusercontent.com/vmiis/Common-Modules/master/";
 	var common_base=site_base+"Common-Modules/";
 	var api_base="https://cbs.wappsystem.com/dev/";
@@ -34,6 +35,7 @@
 		$vm.server=g_server;
 		$vm.api_base=api_base;
 		$vm.app_base=app_base;
+		$vm.code_base=code_base;
 		$vm.common_base=common_base;
 		$vm.ver=production_ver; if(debug) $vm.ver=new Date().getTime();
 		//-------------------------------------------------------------------------
@@ -42,7 +44,8 @@
 			var param={
 				pid:Math.random().toString().replace('.',''),
 				slot:$vm.root_layout_content_slot,
-				url:$vm.app_base+'modules/main_layout.html'
+				url:$vm.app_base+'modules/main_layout.html',
+				source:'modules/main_layout.html'
 			}
 			$vm.load_module(param);
 		}});
