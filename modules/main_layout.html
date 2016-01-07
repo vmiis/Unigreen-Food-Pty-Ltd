@@ -63,7 +63,7 @@
             window.onmessage=function(e){
                   $vm.user=e.data.username;
                   $vm.token=e.data.token;
-                  VmAPI.set_token(e.data.token);
+                  $VmAPI.set_token(e.data.token);
                   g_user=e.data.username;
                   login_changed();
             };
