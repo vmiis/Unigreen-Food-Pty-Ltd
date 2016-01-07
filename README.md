@@ -1,6 +1,6 @@
 <h1>Business Portal for Unigreen Food Pty Ltd</h1>
 
-Preview link: <a target=_blank href=https://vmiis.github.io/Unigreen-Food-Pty-Ltd/</a>
+Preview link: <a target=_blank href=https://vmiis.github.io/Unigreen-Food-Pty-Ltd/>index.html</a>
 
 <ul>
 <li>This application can be hosted on any HTML server.</li>
