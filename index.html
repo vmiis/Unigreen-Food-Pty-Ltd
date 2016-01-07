@@ -44,6 +44,7 @@
 				source:'modules/main_layout.html'
 			}
 			$vm.load_module(param);
+			if(g_server=="development") $('#_help_').show();
 		}});
 		//-------------------------------------------------------------------------
 	});
