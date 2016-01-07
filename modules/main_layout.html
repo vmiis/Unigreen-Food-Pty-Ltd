@@ -119,7 +119,7 @@
                 return;
             }
             else if(b!==undefined){
-                if(b==='1') window.open($vm.api_base+"signin.aspx?url="+window.location.href,"Sign In","width=600, height=600");
+                if(b==='1') window.open($VmAPI.api_base+"signin.aspx?url="+window.location.href,"Sign In","width=600, height=600");
                 else if(b==='2') signout();
             }
             process_background(e);
