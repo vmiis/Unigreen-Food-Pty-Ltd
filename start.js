@@ -2,10 +2,6 @@
 (function(){
       $vm.start=function(app_base,common_base){
       	//----------------------------------------
-      	//Init: where, debug, version...
-            //alert(site_base);
-      	//var app_base           =site_base+"Unigreen-Food-Pty-Ltd/";
-      	//var common_base        =site_base+"Common-Modules/";
       	var production_ver     ='20160106';
             g_server               ="development";
       	var debug              =true;
