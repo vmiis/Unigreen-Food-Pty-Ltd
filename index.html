@@ -16,24 +16,23 @@
  $(document).ready(function(){
 	 var site_base='https://raw.githubusercontent.com/vmiis/';
 	 var app_path='Unigreen-Food-Pty-Ltd/master/';
+	 var common_path='Common-Modules/master/';
 	 $.get(site_base+app_path+"version.html?_="+new Date().getTime(),function(new_ver){
 		 localStorage.setItem("vm_version",new_ver);
 		 $vm.version=new_ver;
 		 var ver=localStorage.getItem("vm_start_ver");
-		 if(ver!==new_ver){
+		 if(ver!=="1"+new_ver){
 			 $.get(site_base+app_path+"start.js?_="+new_ver,function(js){
-alert(js);
 				localStorage.setItem("vm_start_js",js);
 				localStorage.setItem("vm_start_ver",new_ver);
 				$('#main_head').append(js);
-				$vm.start(site_base);
+				$vm.start(site_base+app_path,site_base+common_path);
 			},'text')
 		 }
 		 else{
-			 var js=localStorage.getItem("vm_start_js");
- alert(js);
-			 $('#main_head').append(js);
-			 $vm.start(site_base);
+			var js=localStorage.getItem("vm_start_js");
+			$('#main_head').append(js);
+			$vm.start(site_base+app_path,site_base+common_path);
 		 }
 	 },'text')
  });
