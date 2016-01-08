@@ -21,7 +21,7 @@ $(document).ready(function(){
 		 localStorage.setItem("vm_version",new_ver);
 		 $vm.version=new_ver;
 		 var ver=localStorage.getItem("vm_start_ver");
-		 if(ver===new_ver){
+		 if(ver!==new_ver){
 			 $.get(site_base+app_path+"start.js?_="+new_ver,function(js){
 				localStorage.setItem("vm_start_js",js);
 				localStorage.setItem("vm_start_ver",new_ver);
