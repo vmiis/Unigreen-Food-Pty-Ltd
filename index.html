@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head id=main_head>
 	<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/themes/redmond/jquery-ui.css" />
-	<link rel="stylesheet" media="screen"  href="https://cbs.wappsystem.com/system/third/handsontable.full.min.css">
+	<link rel="stylesheet" media="screen" href="https://cbs.wappsystem.com/system/third/handsontable.full.min.css">
 	<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
 	<script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/jquery-ui.min.js"></script>
 	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
@@ -8,45 +8,31 @@
 	<script src="https://cbs.wappsystem.com/system/third/handsontable.full.min.js"></script>
 	<script src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">google.load('visualization', '1', {'packages':['corechart']});</script>
+	<script src="https://cbs.wappsystem.com/dev/vmapi.min.js?v=20160108" type="text/javascript"></script>
+	<script src="https://cbs.wappsystem.com/dev/vmframework.min.js?v=20160108" type="text/javascript"></script>
 	<script src="https://cbs.wappsystem.com/dev/vm.js?v=20160108"></script>
- </head><body></body></html>
+</head><body></body></html>
 <script>
  $(document).ready(function(){
-	//----------------------------------------
-	//Configration: where,debug,version...
-	var site_base='https://raw.githubusercontent.com/vmiis/';
-	var app_base=site_base+"Unigreen-Food-Pty-Ltd/master/";
-	var code_base="https://github.com/vmiis/Unigreen-Food-Pty-Ltd/blob/master/";
-	var common_base="https://raw.githubusercontent.com/vmiis/Common-Modules/master/";
-	var api_base="https://cbs.wappsystem.com/dev/";
-	var production_ver='20160107';
-      g_server="development";
-	var debug=false;
-	//----------------------------------------
-	$.when(
-		$.get(site_base+"VmAPI/master/distribution/vmapi.min.js",function(c){$('#main_head').append('<scr'+'ipt>'+c+'</scr'+'ipt>')} ),
-		$.get(site_base+"VmFramework/master/distribution/vmframework.min.js",function(c){$('#main_head').append('<scr'+'ipt>'+c+'</scr'+'ipt>')})
-	).done(function(){
-		//-------------------------------------------------------------------------
-		$vm.server=g_server;
-		$vm.app_base=app_base;
-		$vm.code_base=code_base;
-		$vm.common_base=common_base;
-		$vm.ver=production_ver; if(debug) $vm.ver=new Date().getTime();
-		$VmAPI.api_base=api_base;
-		//-------------------------------------------------------------------------
-		//first do some init tasks, then load the main layout
-		$vm.init({callback:function(){
-			var param={
-				pid:Math.random().toString().replace('.',''),
-				slot:$vm.root_layout_content_slot,
-				url:$vm.app_base+'modules/main_layout.html',
-				source:'modules/main_layout.html'
-			}
-			$vm.load_module(param);
-			if(g_server=="development") $('#_help_').show();
-		}});
-		//-------------------------------------------------------------------------
-	});
+	 var site_base='https://raw.githubusercontent.com/vmiis/';
+	 var app_name='Unigreen-Food-Pty-Ltd';
+	 $.get(site_base+app_name+"/version.html?_="+new Date().getTime(),function(new_ver){
+		 localStorage.setItem("vm_version",new_ver);
+		 $vm.version=new_ver;
+		 var ver=localStorage.getItem("vm_start_ver");
+		 if(ver===new_ver){
+			 $.get(site_base+app_name+"/start.js?_="+new_ver,function(js){
+				localStorage.setItem("vm_start_js",js);
+				localStorage.setItem("vm_start_ver",new_ver);
+				$('#main_head').append(js);
+				$vm.start(site_base);
+			},'text')
+		 }
+		 else{
+			 var js=localStorage.getItem("vm_start_js");
+			 $('#main_head').append(js);
+			 $vm.start(site_base);
+		 }
+	 },'text')
  });
  </script>
