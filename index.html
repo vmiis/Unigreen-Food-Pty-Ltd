@@ -8,15 +8,18 @@
 	<script src="https://cbs.wappsystem.com/system/third/handsontable.full.min.js"></script>
 	<script src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">google.load('visualization', '1', {'packages':['corechart']});</script>
+	<script src="https://cbs.wappsystem.com/dev/vm.js?v=20160108"></script>
 </script></head><body></body></html>
 <script>
 $(document).ready(function(){
 	//--------------------------------------------------------
 	$vm={}; $VmAPI={};
 	//--------------------------------------------------------
-	g_server          ="development";
-	$vm.server		=g_server;
-	$vm.debug		=false;
+	$vm.server		="development";
+	$vm.debug		=true;
+	//--------------------------------------------------------
+	g_server          =$vm.server;						//for old vm.js
+	g_vm_api_url	="https://cbs.wappsystem.com/dev/api.aspx";	//for old vm.js
 	//--------------------------------------------------------
 	$vm.site_base	='https://raw.githubusercontent.com/vmiis/';
 	$vm.app_base	='https://raw.githubusercontent.com/vmiis/Unigreen-Food-Pty-Ltd/master/';
@@ -36,8 +39,8 @@ $(document).ready(function(){
 	$.get($vm.app_base+"version.html?_="+new Date().getTime(),function(new_ver){
 		$vm.version=new_ver;
 		$.ajaxSetup({async:false});
-		load_js('VmAPI/distribution/vmapi.min.js',new_ver);
-		load_js('VmFramework/distribution/vmframework.min.js',new_ver);
+		load_js('VmAPI/master/distribution/vmapi.min.js',new_ver);
+		load_js('VmFramework/master/distribution/vmframework.min.js',new_ver);
 		$.ajaxSetup({async:true});
 		$vm.init({callback:function(){
       		var param={

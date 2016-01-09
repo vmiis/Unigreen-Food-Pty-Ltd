@@ -8,15 +8,18 @@
 	<script src="https://cbs.wappsystem.com/system/third/handsontable.full.min.js"></script>
 	<script src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">google.load('visualization', '1', {'packages':['corechart']});</script>
+	<script src="https://cbs.wappsystem.com/dev/vm.js?v=20160108"></script>
 </script></head><body></body></html>
 <script>
 $(document).ready(function(){
 	//--------------------------------------------------------
 	$vm={}; $VmAPI={};
 	//--------------------------------------------------------
-	g_server          ="development";
-	$vm.server		=g_server;
+	$vm.server		="development";
 	$vm.debug		=true;
+	//--------------------------------------------------------
+	g_server          =$vm.server;						//for old vm.js
+	g_vm_api_url	="https://cbs.wappsystem.com/dev/api.aspx";	//for old vm.js
 	//--------------------------------------------------------
 	$vm.site_base	='http://192.168.1.129:8000/';
 	$vm.app_base	='http://192.168.1.129:8000/Unigreen-Food-Pty-Ltd/';
