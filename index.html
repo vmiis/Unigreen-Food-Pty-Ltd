@@ -11,12 +11,12 @@
 	<script src="https://cbs.wappsystem.com/dev/vm.js?v=20160108"></script>
 </script></head><body></body></html>
 <script>
+$vm={}; $VmAPI={};
 $(document).ready(function(){
 	//--------------------------------------------------------
-	$vm={}; $VmAPI={};
-	//--------------------------------------------------------
 	$vm.server		="development";
-	$vm.debug		=true;
+	//$vm.debug		=true;
+	$vm.debug_message	=true;
 	//--------------------------------------------------------
 	g_server          =$vm.server;						//for old vm.js
 	g_vm_api_url	="https://cbs.wappsystem.com/dev/api.aspx";	//for old vm.js
@@ -28,15 +28,24 @@ $(document).ready(function(){
 	$vm.code_base	="https://github.com/vmiis/Unigreen-Food-Pty-Ltd/blob/master/";
 	//--------------------------------------------------------
 	var load_js=function(name,new_ver){
-		var old_ver=localStorage.getItem(name+"_ver");
-		var js=localStorage.getItem(name+"_txt");
-		if(old_ver!=new_ver || js===undefined || $vm.debug===true){
-			$.get($vm.site_base+name+"?_="+new_ver,function(data){ js=data;  localStorage.setItem(name+"_txt",js); },'text');
-		}
-		$('#main_head').append('<scr'+'ipt>'+js+'</scr'+'ipt>');
+		var url=$vm.site_base+name+"?_="+new_ver;
+		var ver=localStorage.getItem(url+"_ver");
+		var txt=localStorage.getItem(url+"_txt");
+		//------------------------------------------
+		if(ver!=new_ver || txt===null || $vm.debug===true){ $.get("https://raw.githubusercontent.com/vmiis/"+name+"?_="+new_ver,function(data){
+			if($vm.debug_message===true) console.log('load module from '+url);
+			txt=data;
+			localStorage.setItem(url+"_txt",txt);
+			localStorage.setItem(url+"_ver",new_ver);
+		},'text'); }
+		//------------------------------------------
+		$('#main_head').append('<scr'+'ipt>'+txt+'</scr'+'ipt>');
 	}
 	//--------------------------------------------------------
-	$.get($vm.app_base+"version.html?_="+new Date().getTime(),function(new_ver){
+	var url=$vm.app_base+"version.html?_="+new Date().getTime();
+	$.get(url,function(new_ver){
+		if($vm.debug===true) new_ver=new Date().getTime();
+		if($vm.debug_message===true) console.log('load module from '+url);
 		$vm.version=new_ver;
 		$.ajaxSetup({async:false});
 		load_js('VmAPI/master/distribution/vmapi.min.js',new_ver);
@@ -46,7 +55,7 @@ $(document).ready(function(){
       		var param={
       			pid:Math.random().toString().replace('.',''),
       			slot:$vm.root_layout_content_slot,
-      			url:$vm.app_base+'modules/main_layout.html',
+      			name:'modules/main_layout.html',
       			source:'modules/main_layout.html'
       		}
       		$vm.load_module(param);

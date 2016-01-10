@@ -56,7 +56,6 @@
             //------------------------------------
             var on_load=function(){
                   layout_resize();
-                  load_module(home_module);
                   //slide show timer
                   setInterval(function () {
                         moveRight();
@@ -85,7 +84,7 @@
                   var param={
       			pid:Math.random().toString().replace('.',''),
       			slot:$vm.root_layout_content_slot,
-      			url:$vm.app_base+name,
+      			name:name,
                         source:name
             	}
                   $vm.load_module(param);
