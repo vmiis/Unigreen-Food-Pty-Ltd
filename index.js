@@ -2,8 +2,8 @@ $vm.module_list={
     main_layout:                 ['--------','__BASE__/wappsystem/Unigreen-Food-Pty-Ltd/modules/main_layout.html','https://github.com/wappsystem/Unigreen-Food-Pty-Ltd/blob/master/modules/main_layout.html'],
     home:                        ['--------','__BASE__/wappsystem/Unigreen-Food-Pty-Ltd/modules/home.html','https://github.com/wappsystem/Unigreen-Food-Pty-Ltd/blob/master/modules/home.html'],
     business_portal_nav:         ['--------','__BASE__/wappsystem/Unigreen-Food-Pty-Ltd/modules/business_portal_nav.html','https://github.com/wappsystem/Unigreen-Food-Pty-Ltd/blob/master/modules/business_portal_nav.html'],
-    production_list:             ['20003827','__BASE__/wappsystem/Unigreen-Food-Pty-Ltd/modules/production_list.html','https://github.com/wappsystem/Unigreen-Food-Pty-Ltd/blob/master/modules/unigreen/modules/production_list.html'],
-    staff_list:                  ['20007255','__BASE__/wappsystem/Unigreen-Food-Pty-Ltd/modules/staff_list.html','https://github.com/wappsystem/Unigreen-Food-Pty-Ltd/blob/master/modules//unigreen/modules/staff_list.html'],
+    production_list:             ['20007681','__BASE__/wappsystem/Unigreen-Food-Pty-Ltd/modules/production_list.html','https://github.com/wappsystem/Unigreen-Food-Pty-Ltd/blob/master/modules/unigreen/modules/production_list.html'],
+    staff_list:                  ['20007682','__BASE__/wappsystem/Unigreen-Food-Pty-Ltd/modules/staff_list.html','https://github.com/wappsystem/Unigreen-Food-Pty-Ltd/blob/master/modules//unigreen/modules/staff_list.html'],
 }
 //--------------------------------------------------------
 var last=function(){
