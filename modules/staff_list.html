@@ -1,14 +1,16 @@
 <!-- 20007682 -->
 <section>
-      VmCommonInclude:frame\excel.html
+      VmInclude:https://raw.githubusercontent.com/vmiis/Common-Modules/master/frame/excel.html
 </section>
 <script>
       function F__ID(){
             //-------------------------------------
+            $vm.vm['__ID'].db_pid=$vm.module_list['staff'][0];
+            //-------------------------------------
             var fields="First_Name,Last_Name,Telephone,Email";
             fields+=",Submit Date|DateTime,Submitted by|Author";
             //-------------------------------------
-            VmCommonInclude:frame\excel.js
+            VmInclude:__BASE__/vmiis/Common-Modules/frame/excel.js
             //-------------------------------------
             $('#D__ID').on('load',function(){
                   grid_data();

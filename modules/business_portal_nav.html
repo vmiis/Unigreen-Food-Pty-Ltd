@@ -29,13 +29,9 @@
             //---------------------------------------------
             //click, permission process
             var content_slot=$vm.root_layout_content_slot;
-            VmCommonInclude:navigation/link_process.js
+            VmInclude:__BASE__/vmiis/Common-Modules/master/navigation/link_process.js
+            VmInclude:__BASE__/vmiis/Common-Modules/master/toolbar/back.js
             //---------------------------------------------
-            $('#back__ID').on('click',function(event){
-                  event.stopPropagation();
-                  $(this).vm5('back2',__ID);
-            });
-           //---------------------------------------------
             $('#name__ID').text('Sleep Study Management');
             //---------------------------------------------
             $('#D__ID').on('load',function(){
