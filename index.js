@@ -9,7 +9,7 @@ $vm.module_list={
 for(key in $vm.module_list){
     $vm.module_list[key].push($vm.module_list[key][1]);
     $vm.module_list[key][1]=$vm.module_list[key][1].replace('...','__BASE__/'+$vm.repository)
-    $vm.module_list[key][2]=$vm.module_list[key][2].replace('...','https://github.com/'+$vm.repository+'/master')
+    $vm.module_list[key][2]=$vm.module_list[key][2].replace('...','https://github.com/'+$vm.repository+'/blob/master')
 }
 var jsN=0;
 var last=function(){
