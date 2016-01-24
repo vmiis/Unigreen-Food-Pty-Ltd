@@ -25,7 +25,7 @@ $(document).ready(function(){
     var load_vmapi   =function(){ load_js($vm.url('__BASE__/vmiis/VmAPI/distribution/vmapi.min.js'),load_vm);	}
 	var load_vm      =function(){ load_js($vm.url('__BASE__/vmiis/VmFramework/distribution/vmframework.min.js'),load_index_js);}
     var load_index_js=function(){ load_js($vm.url('__BASE__/'+$vm.repository+'/index.js'),init);}
-	var init         =function(){ $vm.init({callback:function(){$vm.load_first_module({url:$vm.module_list.main_layout[1],src:$vm.module_list.main_layout[2]}); last();  }});	}
+	var init         =function(){ $vm.init({callback:function(){$vm.load_first_module({url:$vm.module_list.layout[1],src:$vm.module_list.layout[2]}); last();  }});	}
 	//--------------------------------------------------------
 	var load_js=function(url,next){
 		var ver=localStorage.getItem(url+"_ver");
