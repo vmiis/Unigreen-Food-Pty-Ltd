@@ -1,15 +1,15 @@
 $vm.module_list={
-    main_layout:        ['--------','.../main_layout.html'],
-    home:               ['--------','.../home.html'],
-    business_portal_nav:['--------','.../business_portal_nav.html'],
-    production_list:    ['20007681','.../production_list.html'],
-    staff_list:         ['20007682','.../staff_list.html'],
+    layout:        ['--------','.../layout.html'],
+    home:               ['--------','.../modules/home.html'],
+    business_portal_nav:['--------','.../modules/business_portal_nav.html'],
+    production_list:    ['20007681','.../modules/production_list.html'],
+    staff_list:         ['20007682','.../modules/staff_list.html'],
 }
 //--------------------------------------------------------
 for(key in $vm.module_list){
     $vm.module_list[key].push($vm.module_list[key][1]);
-    $vm.module_list[key][1]=$vm.module_list[key][1].replace('...','__BASE__/'+$vm.repository+'/modules')
-    $vm.module_list[key][2]=$vm.module_list[key][2].replace('...','https://github.com/'+$vm.repository+'/master/module')
+    $vm.module_list[key][1]=$vm.module_list[key][1].replace('...','__BASE__/'+$vm.repository)
+    $vm.module_list[key][2]=$vm.module_list[key][2].replace('...','https://github.com/'+$vm.repository+'/master')
 }
 var last=function(){
     $('head').append("<style> *{ margin:0; } html,body { height:100%;} </style>");
